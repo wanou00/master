@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="suite1">
+    <!-- ????? -->
+    <test name="test1">
+        <packages>
+            <package name="com.demo.test"/>
+        </packages>
+    </test>
+    <!-- ????? -->
+    <test name="test2">
+        <classes>
+            <class name="com.demo.test.TestNGDemo1"/>
+        </classes>
+    </test>
+    <!-- ???? -->
+    <test name="test3">
+        <groups>
+            <define name="part">
+                <include name="aa"/>
+                <include name="bb"/>
+            </define>
+
+            <define name="all">
+                <include name="part"/>
+                <include name="allClass"/>
+            </define>
+
+            <run>
+                <include name="all,aa"/>
+                <exclude name="cc"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.demo.test.TestNGDemo1">
+                <methods>
+                    <include name="testMethodaa"/>
+                    <exclude name="testMethodbb"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ???? -->
+    <!--<parameter name="first_name" value="aaaa"/>-->
+    <parameter name="firstName" value="aaaa"/>
+    <test name="test4">
+        <classes>
+            <class name="com.demo.test.TestNGDemo2"/>
+        </classes>
+    </test>
+</suite>
